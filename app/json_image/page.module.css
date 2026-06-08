@@ -1,0 +1,347 @@
+.page {
+  --bg: #f4f0ea;
+  --panel: rgba(255, 252, 247, 0.92);
+  --panelStrong: #fffaf4;
+  --line: rgba(74, 53, 36, 0.12);
+  --text: #2c2119;
+  --muted: #7d6756;
+  --accent: #c66a3d;
+  --accentDeep: #8f4324;
+  --accentSoft: rgba(198, 106, 61, 0.12);
+  --shadow: 0 24px 60px rgba(72, 48, 29, 0.12);
+
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(198, 106, 61, 0.16), transparent 28rem),
+    linear-gradient(180deg, #fffaf5 0%, var(--bg) 100%);
+}
+
+.page * {
+  box-sizing: border-box;
+}
+
+.page button,
+.page textarea,
+.page a {
+  font: inherit;
+}
+
+.page button {
+  cursor: pointer;
+}
+
+.page a {
+  color: inherit;
+}
+
+.page code {
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: rgba(44, 33, 25, 0.06);
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 460px) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.editorPanel,
+.galleryPanel {
+  padding: 32px;
+}
+
+.editorPanel {
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  gap: 18px;
+  border-right: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 251, 246, 0.9)),
+    var(--panel);
+  backdrop-filter: blur(20px);
+}
+
+.galleryPanel {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 22px;
+}
+
+.panelHead,
+.galleryHead,
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.panelHead h1,
+.galleryHead h2 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accentDeep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.panelCopy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.editorLabel {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.jsonInput,
+.statusCard,
+.imageCard,
+.emptyState {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panelStrong);
+  box-shadow: var(--shadow);
+}
+
+.jsonInput {
+  width: 100%;
+  min-height: 420px;
+  padding: 18px 20px;
+  color: var(--text);
+  resize: vertical;
+  border-radius: 28px;
+  outline: none;
+  line-height: 1.7;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.jsonInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accentSoft);
+}
+
+.primaryButton,
+.ghostButton {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
+}
+
+.primaryButton {
+  color: #fff8f3;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accentDeep) 100%);
+}
+
+.ghostButton {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+}
+
+.primaryButton:hover,
+.ghostButton:hover,
+.backLink:hover {
+  transform: translateY(-1px);
+}
+
+.statusCard {
+  padding: 16px 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.statusCard.success {
+  color: #206441;
+  border-color: rgba(32, 100, 65, 0.18);
+  background: rgba(237, 252, 244, 0.95);
+}
+
+.statusCard.error {
+  color: #932f2f;
+  border-color: rgba(147, 47, 47, 0.18);
+  background: rgba(255, 241, 241, 0.96);
+}
+
+.summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.summary strong {
+  color: var(--accentDeep);
+  font-size: 18px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-content: start;
+}
+
+.galleryColumns1 {
+  grid-template-columns: 1fr;
+}
+
+.galleryColumns2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.emptyState {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+.emptyState strong {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.emptyState p {
+  margin: 8px 0 0;
+}
+
+.imageCard {
+  display: grid;
+  width: 100%;
+  justify-items: stretch;
+  gap: 10px;
+  padding: 14px;
+}
+
+.imageFrame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+  padding: 0;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(198, 106, 61, 0.15), rgba(255, 255, 255, 0.9)),
+    #f7ede4;
+}
+
+.previewImage,
+.imageFallback {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.previewImage {
+  display: block;
+  background: #f7ede4;
+}
+
+.imageFallback {
+  display: grid;
+  place-items: center;
+  color: #8d3838;
+  font-size: 15px;
+  font-weight: 700;
+  background:
+    linear-gradient(135deg, rgba(200, 98, 98, 0.16), rgba(255, 255, 255, 0.92)),
+    #f8eaea;
+}
+
+.metaStats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+
+.statItem {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.statItem span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.statItem strong {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+@media (max-width: 920px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .editorPanel {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 1180px) {
+  .gallery:not(.galleryColumns1) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .editorPanel,
+  .galleryPanel {
+    padding: 20px;
+  }
+
+  .panelHead,
+  .galleryHead,
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

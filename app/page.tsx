@@ -1,64 +1,65 @@
-import Image from "next/image";
+import Link from "next/link";
+import styles from "./page.module.css";
+
+const tools = [
+  {
+    href: "/onlineplayer",
+    title: "在线视频播放器",
+    cardClass: styles.playerCard,
+    iconPath: "M20 16.5v15l12-7.5-12-7.5Z",
+  },
+  {
+    href: "/ux_design",
+    title: "UI 设计原则 Web 展示",
+    cardClass: styles.designCard,
+    iconPath: "M15 17h18v4H15v-4Zm0 8h12v4H15v-4Zm0 8h18v4H15v-4Z",
+  },
+  {
+    href: "/json_image",
+    title: "JSON 图片提取器",
+    cardClass: styles.designCard,
+    iconPath: "M10 14h28v20H10V14Zm4 4v12h20V18H14Zm3 9 4.5-5.5 3.5 4 2.5-3 4.5 4.5H17Z",
+  },
+  {
+    href: "/image_import_inspector",
+    title: "图片导入查看台",
+    cardClass: styles.designCard,
+    iconPath: "M12 14h24v20H12V14Zm4 4v12h16V18H16Zm2 9 3.5-4.5 3 3.5 2.5-3 3 4H18Zm-1-7h6v2h-6v-2Z",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className={styles.body}>
+      <header className={styles.siteHeader}>
+        <nav className={styles.topbar} aria-label="主导航">
+          <Link className={styles.brand} href="/">
+            小工具
+          </Link>
+        </nav>
+      </header>
+
+      <main className={styles.main}>
+        <section className={styles.toolsSection} aria-label="工具列表">
+          <div className={styles.toolGrid}>
+            {tools.map((tool) => (
+              <Link key={tool.href} className={`${styles.toolCard} ${tool.cardClass}`} href={tool.href}>
+                <span className={styles.toolIcon} aria-hidden="true">
+                  <svg viewBox="0 0 48 48" role="img">
+                    <rect width="48" height="48" rx="16"></rect>
+                    <path d={tool.iconPath}></path>
+                  </svg>
+                </span>
+                <span className={styles.toolMeta}>
+                  <span className={styles.toolTitle}>{tool.title}</span>
+                </span>
+                <span className={styles.toolArrow} aria-hidden="true">
+                  进入
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );
