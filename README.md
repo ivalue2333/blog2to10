@@ -7,7 +7,14 @@ npx create-next-app@latest --typescript
 First, run the development server:
 
 ```bash
+
+npm install next@latest react@latest react-dom@latest
+
+npm install -D eslint-config-next@latest
+
 npm run dev
+
+npm run build
 # or
 yarn dev
 # or
