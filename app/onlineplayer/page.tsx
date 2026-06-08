@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Script from "next/script";
 import { useCallback, useEffect, useRef, useState } from "react";
+import SiteHeader from "../_components/SiteHeader";
 import styles from "./page.module.css";
 
 type PlaylistItem = {
@@ -457,28 +458,8 @@ export default function OnlinePlayerPage() {
       <Script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.7/dist/umd/ffmpeg.js" strategy="afterInteractive" />
       <Script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js" strategy="afterInteractive" />
       <div className={styles.body}>
+        <SiteHeader currentTool="在线视频播放器" />
         <div className={styles.container}>
-          <header className={styles.header}>
-            <div className={styles.headerLeft}>
-              <Link className={styles.logo} href="/">
-                <span>
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <rect width="32" height="32" rx="16" fill="#3B82F6" />
-                    <path d="M12 10L22 16L12 22V10Z" fill="white" />
-                  </svg>
-                </span>
-                <span>OnlinePlayer</span>
-              </Link>
-            </div>
-            <div className={styles.headerRight}>
-              <nav className={styles.headerNavigation}>
-                <Link className={`${styles.navLink} ${styles.navLinkActive}`} href="/">
-                  主页
-                </Link>
-              </nav>
-            </div>
-          </header>
-
           <main className={styles.body_main}>
             <div className={styles.mainContentWrapper}>
               <div
@@ -516,7 +497,6 @@ export default function OnlinePlayerPage() {
                         >
                           选择视频文件
                         </button>
-                        <p className={styles.uploadHint}>支持所有格式：MP4, AVI, MKV, WMV, FLV, MOV 等</p>
                       </div>
                     </div>
                   )}
@@ -525,7 +505,6 @@ export default function OnlinePlayerPage() {
                       <div className={styles.transcodeContent}>
                         <div className={styles.spinner}></div>
                         <h3>正在转换视频格式...</h3>
-                        <p>为了在浏览器中播放，我们需要转换此视频格式。</p>
                         <p
                           className={`${styles.transcodeStatus} ${transcodeError ? styles.transcodeStatusError : ""}`}
                         >
@@ -723,7 +702,6 @@ export default function OnlinePlayerPage() {
                         ></path>
                       </svg>
                       <h3>播放列表为空</h3>
-                      <p>添加视频文件到播放列表</p>
                     </div>
                   ) : (
                     <ul className={styles.playlistItems}>
@@ -757,11 +735,6 @@ export default function OnlinePlayerPage() {
               </div>
             </div>
           </main>
-
-          <section className={styles.toolIntro}>
-            <h1>OnlinePlayer：您的首选在线视频播放器</h1>
-            <p>一款注重隐私的免费在线视频播放器，可在您的浏览器中运行。支持所有格式，无需安装。</p>
-          </section>
 
           <footer className={styles.footer}>
             <div className={styles.footerLinks}>

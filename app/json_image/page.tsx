@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import SiteHeader from "../_components/SiteHeader";
 import styles from "./page.module.css";
 
 type ImageItem = {
@@ -216,6 +216,7 @@ export default function JsonImagePage() {
 
   return (
     <div className={styles.page}>
+      <SiteHeader currentTool="JSON 图片提取器" />
       <div className={styles.shell}>
         <section className={styles.editorPanel} aria-label="JSON 输入区">
           <div className={styles.panelHead}>
@@ -223,14 +224,7 @@ export default function JsonImagePage() {
               <p className={styles.eyebrow}>JSON Image</p>
               <h1>图片提取器</h1>
             </div>
-            <Link className={styles.backLink} href="/">
-              返回首页
-            </Link>
           </div>
-
-          <p className={styles.panelCopy}>
-            左侧输入任意 JSON，系统会递归遍历所有层级中的键和值，只要内容是 <code>http://</code> 或 <code>https://</code> 开头，就按图片处理。
-          </p>
 
           <div className={styles.toolbar}>
             <button className={styles.ghostButton} type="button" onClick={fillExample}>

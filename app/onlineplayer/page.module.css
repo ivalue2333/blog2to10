@@ -1,14 +1,17 @@
 .body {
-  --primary-color: #3b82f6;
-  --bg-color: #0f0f11;
-  --card-bg: #18181b;
-  --text-color: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --border-color: #27272a;
-  --hover-color: #3f3f46;
+  --primary-color: #2bb673;
+  --primary-dark: #1f9d63;
+  --primary-soft: rgba(43, 182, 115, 0.12);
+  --secondary: #06b6d4;
+  --bg-color: #f6fbff;
+  --card-bg: #ffffff;
+  --text-color: #17324d;
+  --text-muted: #6b7780;
+  --border-color: rgba(23, 50, 77, 0.08);
+  --hover-color: #f6f7f8;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -34,7 +37,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--card-bg);
+  background-color: #ffffff;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -94,7 +97,7 @@
   display: flex;
   flex-direction: column;
   background-color: #000;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
   border: 1px solid var(--border-color);
@@ -174,7 +177,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.92);
   z-index: 10;
   transition: opacity 0.3s;
 }
@@ -186,9 +189,10 @@
 .fileSelection {
   text-align: center;
   padding: 2rem;
-  border: 2px dashed var(--border-color);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  background-color: var(--card-bg);
+  background-color: #ffffff;
+  color: var(--text-color);
 }
 
 .uploadIcon {
@@ -202,7 +206,7 @@
 
 .btn {
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   font-weight: 500;
   cursor: pointer;
@@ -221,18 +225,20 @@
 }
 
 .primaryBtn:hover {
-  background-color: #2563eb;
+  background-color: var(--primary-dark);
 }
 
 .btnSmall {
   padding: 0.35rem 0.75rem;
   font-size: 0.85rem;
-  background-color: var(--hover-color);
+  background-color: #f6f7f8;
   color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
 }
 
 .btnSmall:hover {
-  background-color: #52525b;
+  background-color: #eef2f6;
 }
 
 .uploadHint {
@@ -247,7 +253,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.85);
   z-index: 20;
   display: flex;
   justify-content: center;
@@ -260,12 +266,13 @@
 }
 
 .transcodeContent {
-  background-color: var(--card-bg);
+  background-color: #ffffff;
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid var(--border-color);
   max-width: 400px;
   width: 90%;
+  color: var(--text-color);
 }
 
 .transcodeContent h3 {
@@ -291,7 +298,7 @@
 .transcodeProgressBg {
   width: 100%;
   height: 6px;
-  background-color: #3f3f46;
+  background-color: var(--hover-color);
   border-radius: 3px;
   margin: 1rem 0;
   overflow: hidden;
@@ -307,7 +314,7 @@
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid rgba(59, 130, 246, 0.3);
+  border: 4px solid rgba(43, 182, 115, 0.3);
   border-top: 4px solid var(--primary-color);
   border-radius: 50%;
   margin: 0 auto;
@@ -324,7 +331,7 @@
 }
 
 .controls {
-  background-color: var(--card-bg);
+  background-color: #f8fafc;
   padding: 1rem;
   border-top: 1px solid var(--border-color);
 }
@@ -355,7 +362,7 @@
 .progressBarTrack {
   width: 100%;
   height: 4px;
-  background-color: #3f3f46;
+  background-color: var(--border-color);
   border-radius: 2px;
   position: relative;
   overflow: hidden;
@@ -394,7 +401,7 @@
   color: var(--text-color);
   cursor: pointer;
   padding: 0.5rem;
-  border-radius: 50%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -402,7 +409,7 @@
 }
 
 .ctrlBtn:hover:not(:disabled) {
-  background-color: var(--hover-color);
+  background-color: #eef2f6;
 }
 
 .ctrlBtn:disabled {
@@ -425,7 +432,7 @@
   width: 80px;
   height: 4px;
   appearance: none;
-  background: #3f3f46;
+  background: var(--border-color);
   border-radius: 2px;
   outline: none;
 }
@@ -435,7 +442,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--text-color);
+  background: var(--primary-color);
   cursor: pointer;
 }
 
@@ -447,10 +454,10 @@
 }
 
 .speedSelect {
-  background-color: var(--hover-color);
+  background-color: #f6f7f8;
   color: var(--text-color);
-  border: none;
-  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   padding: 0.25rem 0.5rem;
   margin-left: 1rem;
   cursor: pointer;
@@ -461,7 +468,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--card-bg);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
   overflow: hidden;
   min-width: 300px;
@@ -525,7 +532,7 @@
 }
 
 .playlistItemActive {
-  background-color: rgba(59, 130, 246, 0.15);
+  background-color: rgba(43, 182, 115, 0.12);
   border-left: 3px solid var(--primary-color);
 }
 
@@ -539,7 +546,7 @@
 
 .transcodedTag {
   font-size: 0.8em;
-  color: #3b82f6;
+  color: var(--primary-color);
   margin-left: 4px;
 }
 
@@ -559,7 +566,9 @@
 .toolIntro {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: var(--card-bg);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   margin-top: 2rem;
 }
 
@@ -577,6 +586,7 @@
 .footer {
   padding: 2rem;
   text-align: center;
+  background-color: #ffffff;
   border-top: 1px solid var(--border-color);
   margin-top: auto;
   color: var(--text-muted);

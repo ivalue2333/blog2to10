@@ -1,26 +1,24 @@
 .page {
-  --bg: #121417;
-  --bgSoft: #191d22;
-  --panel: rgba(24, 28, 34, 0.84);
-  --panelStrong: rgba(31, 37, 45, 0.96);
-  --line: rgba(182, 208, 225, 0.14);
-  --lineStrong: rgba(182, 208, 225, 0.22);
-  --text: #eff4f7;
-  --muted: #9fafbb;
-  --accent: #70d1c5;
-  --accentStrong: #9ae6dc;
-  --accentSoft: rgba(112, 209, 197, 0.14);
-  --danger: #ff8f8f;
-  --dangerSoft: rgba(255, 143, 143, 0.14);
-  --shadow: 0 26px 80px rgba(0, 0, 0, 0.34);
+  --bg: #f6fbff;
+  --bgSoft: #ffffff;
+  --panel: #ffffff;
+  --panelStrong: #ffffff;
+  --line: rgba(23, 50, 77, 0.08);
+  --lineStrong: rgba(23, 50, 77, 0.18);
+  --text: #17324d;
+  --muted: #6b7780;
+  --accent: #2bb673;
+  --accentStrong: #1f9d63;
+  --accentSoft: rgba(43, 182, 115, 0.12);
+  --secondary: #06b6d4;
+  --danger: #ef4444;
+  --dangerSoft: rgba(239, 68, 68, 0.12);
+  --shadow: 0 2px 8px rgba(45, 109, 142, 0.06);
 
   min-height: 100vh;
   color: var(--text);
-  font-family: "PingFang SC", "Noto Sans SC", "Helvetica Neue", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(112, 209, 197, 0.16), transparent 28rem),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 24rem),
-    linear-gradient(180deg, #0e1013 0%, var(--bg) 100%);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
 }
 
 .page * {
@@ -50,8 +48,8 @@
   padding: 0 10px;
   border: 1px solid var(--line);
   border-bottom-width: 2px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  background: #f6f7f8;
   font-size: 13px;
 }
 
@@ -82,10 +80,7 @@
   grid-template-rows: auto auto auto auto 1fr;
   gap: 20px;
   border-right: 1px solid var(--line);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 60%),
-    var(--panel);
-  backdrop-filter: blur(18px);
+  background: var(--panel);
 }
 
 .previewPanel {
@@ -114,28 +109,30 @@
 .introHead h1,
 .metaHead h2 {
   margin: 0;
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .introHead h1 {
-  font-size: clamp(1.55rem, 2vw, 2.3rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
 }
 
 .metaHead h2 {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
 }
 
 .backLink,
 .sourceBadge {
   display: inline-flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 16px;
+  min-height: 32px;
+  padding: 0 12px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  background: #f6f7f8;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .statusCard,
@@ -145,7 +142,7 @@
 .previewFrame,
 .metaCard {
   border: 1px solid var(--line);
-  border-radius: 28px;
+  border-radius: 12px;
   background: var(--panelStrong);
   box-shadow: var(--shadow);
 }
@@ -157,15 +154,15 @@
 }
 
 .statusCard.success {
-  color: #d7fff5;
-  border-color: rgba(112, 209, 197, 0.3);
-  background: linear-gradient(135deg, rgba(112, 209, 197, 0.18), rgba(31, 37, 45, 0.98));
+  color: var(--accentStrong);
+  border-color: rgba(43, 182, 115, 0.32);
+  background: rgba(43, 182, 115, 0.08);
 }
 
 .statusCard.error {
-  color: #ffd4d4;
-  border-color: rgba(255, 143, 143, 0.26);
-  background: linear-gradient(135deg, var(--dangerSoft), rgba(31, 37, 45, 0.98));
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.32);
+  background: var(--dangerSoft);
 }
 
 .importStack {
@@ -186,6 +183,7 @@
 
 .pasteZone {
   border-style: dashed;
+  border-color: rgba(43, 182, 115, 0.32);
 }
 
 .pasteZone:hover,
@@ -193,7 +191,7 @@
 .pasteZone:focus-visible,
 .backLink:hover {
   transform: translateY(-2px);
-  border-color: var(--lineStrong);
+  border-color: var(--accent);
 }
 
 .pasteZone:focus-visible {
@@ -246,18 +244,16 @@
   place-items: center;
   min-height: 240px;
   padding: 24px;
-  background:
-    linear-gradient(135deg, rgba(112, 209, 197, 0.1), rgba(255, 255, 255, 0.02)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  background: #f6f7f8;
 }
 
 .previewImage {
   display: block;
   max-width: 100%;
   max-height: min(60vh, 520px);
-  border-radius: 20px;
+  border-radius: 12px;
   object-fit: contain;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 2px 8px rgba(45, 109, 142, 0.06);
 }
 
 .metaPanel {

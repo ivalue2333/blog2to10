@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import SiteHeader from "../_components/SiteHeader";
 import styles from "./page.module.css";
 
 type ImageMeta = {
@@ -201,7 +201,7 @@ const initialStatus: Status = {
   tone: "default",
   message: (
     <>
-      等待导入图片。支持截图后直接按 <kbd>Command</kbd> + <kbd>V</kbd> 或 <kbd>Ctrl</kbd> + <kbd>V</kbd>。
+      按 <kbd>Command</kbd> + <kbd>V</kbd> 或 <kbd>Ctrl</kbd> + <kbd>V</kbd> 粘贴图片。
     </>
   ),
 };
@@ -296,16 +296,14 @@ export default function ImageImportInspectorPage() {
 
   return (
     <div className={styles.page}>
+      <SiteHeader currentTool="图片元信息" />
       <main className={styles.shell}>
         <section className={styles.introPanel} aria-label="图片导入操作区">
           <div className={styles.introHead}>
             <div>
               <p className={styles.eyebrow}>Image Intake Desk</p>
-              <h1>图片导入查看台</h1>
+              <h1>图片元信息</h1>
             </div>
-            <Link className={styles.backLink} href="/">
-              返回首页
-            </Link>
           </div>
 
           <div className={statusClass} aria-live="polite">
@@ -327,13 +325,11 @@ export default function ImageImportInspectorPage() {
             >
               <span className={styles.zoneLabel}>剪切板导入</span>
               <strong>点击聚焦后粘贴图片</strong>
-              <span>支持截图、复制后的单张图片内容</span>
             </button>
 
             <label className={styles.fileTrigger} htmlFor="fileInput">
               <span className={styles.zoneLabel}>本地文件</span>
               <strong>从电脑中选择图片</strong>
-              <span>支持 PNG、JPG、WEBP、GIF 等常见格式</span>
             </label>
             <input
               id="fileInput"
@@ -343,15 +339,6 @@ export default function ImageImportInspectorPage() {
               accept="image/*"
               onChange={handleFileChange}
             />
-          </div>
-
-          <div className={styles.tipsCard}>
-            <h2>使用说明</h2>
-            <ul>
-              <li>如果刚复制了截图，直接回到页面粘贴即可。</li>
-              <li>如果选择了非图片文件，页面会明确提示。</li>
-              <li>每次只展示一张图片，新的导入会覆盖旧内容。</li>
-            </ul>
           </div>
         </section>
 

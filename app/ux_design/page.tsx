@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
+import SiteHeader from "../_components/SiteHeader";
 import styles from "./page.module.css";
 
 type Law = {
@@ -347,17 +347,7 @@ export default function UxDesignPage() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.siteHeader}>
-        <nav className={styles.topbar} aria-label="主导航">
-          <span className={styles.brand}>Laws of UX 中文版</span>
-          <div className={styles.navLinks}>
-            <Link href="/">主页</Link>
-            <a href="https://lawsofux.com/" target="_blank" rel="noreferrer">
-              原站
-            </a>
-          </div>
-        </nav>
-      </header>
+      <SiteHeader currentTool="UI 设计原则 Web 展示" />
 
       <main className={styles.main}>
         <section className={styles.toolbar} aria-label="搜索与筛选">
@@ -429,14 +419,6 @@ export default function UxDesignPage() {
               <p className={styles.eyebrow}>{selectedLaw.titleEn}</p>
               <h2>{selectedLaw.titleZh}</h2>
               <p className={styles.detailSummary}>{selectedLaw.summaryZh}</p>
-              <div className={styles.detailBlock}>
-                <h4>记住什么</h4>
-                <ul>
-                  {selectedLaw.takeaways.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
               <div className={styles.detailBlock}>
                 <h4>怎么应用</h4>
                 <ul>
