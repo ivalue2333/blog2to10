@@ -21,7 +21,7 @@ const tools = [
     iconPath: "M10 14h28v20H10V14Zm4 4v12h20V18H14Zm3 9 4.5-5.5 3.5 4 2.5-3 4.5 4.5H17Z",
   },
   {
-    href: "/image_import_inspector",
+    href: "/image_meta",
     title: "图片导入查看台",
     cardClass: styles.designCard,
     iconPath: "M12 14h24v20H12V14Zm4 4v12h16V18H16Zm2 9 3.5-4.5 3 3.5 2.5-3 3 4H18Zm-1-7h6v2h-6v-2Z",
