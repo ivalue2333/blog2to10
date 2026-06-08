@@ -35,5 +35,20 @@ else
   echo "[restart-dev] 端口 ${PORT} 空闲"
 fi
 
-echo "[restart-dev] 在端口 ${PORT} 启动 next dev"
-exec npx next dev -p "${PORT}"
+echo "[restart-dev] 在端口 ${PORT} 后台启动 next dev"
+
+LOG_DIR="${LOG_DIR:-.dev-logs}"
+mkdir -p "${LOG_DIR}"
+LOG_FILE="${LOG_DIR}/next-dev-${PORT}.log"
+PID_FILE="${LOG_DIR}/next-dev-${PORT}.pid"
+
+# 后台启动，脱离当前 shell，输出重定向到日志文件
+nohup npx next dev -p "${PORT}" >"${LOG_FILE}" 2>&1 &
+NEXT_PID=$!
+disown "${NEXT_PID}" 2>/dev/null || true
+
+echo "${NEXT_PID}" >"${PID_FILE}"
+echo "[restart-dev] 已后台启动，PID: ${NEXT_PID}"
+echo "[restart-dev] 日志: ${LOG_FILE}"
+echo "[restart-dev] 查看日志: tail -f ${LOG_FILE}"
+echo "[restart-dev] 停止服务: kill \$(cat ${PID_FILE})"
