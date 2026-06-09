@@ -7,7 +7,7 @@
 
 #du -sh ./datas/*
 
-git add . &&  git -c user.email="ivalue2333@gmail.com" commit --amend --no-edit && git push -f
+git add . && git -c user.email="ivalue2333@gmail.com" commit --amend --no-edit && git push -f
 
 
 
