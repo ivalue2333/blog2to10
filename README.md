@@ -13,6 +13,7 @@
 | `/timestamp` | 时间戳转换 | 时间戳与日期相互转换 |
 | `/whiteboard` | 白板 | 基于 [Excalidraw](https://github.com/excalidraw/excalidraw)，IndexedDB 本地持久化 |
 | `/json_view` | JSON 查看器 | 基于 [@uiw/react-json-view](https://github.com/uiwjs/react-json-view)，格式化 / 折叠 / 高亮 |
+| `/base64` | Base64 编解码 | 文本 ↔ Base64 互转，支持 URL-Safe、UTF-8 |
 
 ## 技术栈
 
@@ -76,6 +77,7 @@ app/
   timestamp/                    # 时间戳转换
   whiteboard/                   # Excalidraw 白板
   json_view/                    # JSON 查看器
+  base64/                       # Base64 编解码
 scripts/restart.sh              # 重启脚本
 ```
 

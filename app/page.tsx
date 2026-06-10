@@ -66,6 +66,15 @@ const tools = [
     cardClass: styles.designCard,
     iconPath: "M16 10c-3 0-5 2-5 5v5c0 2-1 3-3 3v4c2 0 3 1 3 3v5c0 3 2 5 5 5v-4c-1 0-2-1-2-3v-5c0-2-1-3-2-4 1-1 2-2 2-4v-5c0-2 1-3 2-3v-4Zm16 0v4c1 0 2 1 2 3v5c0 2 1 3 2 4-1 1-2 2-2 4v5c0 2-1 3-2 3v4c3 0 5-2 5-5v-5c0-2 1-3 3-3v-4c-2 0-3-1-3-3v-5c0-3-2-5-5-5Z",
   },
+  {
+    href: "/base64",
+    title: "Base64 编解码",
+    category: "开发类",
+    desc: "文本与 Base64 互转，支持 URL-Safe",
+    url: "/base64",
+    cardClass: styles.designCard,
+    iconPath: "M11 12h26v4H15v6h18v4H15v6h22v4H11V12Zm26 22v4h-4v-4h4Z",
+  },
 ];
 
 export default function Home() {
