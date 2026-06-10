@@ -296,13 +296,13 @@ export default function ImageImportInspectorPage() {
 
   return (
     <div className={styles.page}>
-      <SiteHeader currentTool="图片元信息" />
+      <SiteHeader currentTool="图片信息查看" />
       <main className={styles.shell}>
         <section className={styles.introPanel} aria-label="图片导入操作区">
           <div className={styles.introHead}>
             <div>
               <p className={styles.eyebrow}>Image Intake Desk</p>
-              <h1>图片元信息</h1>
+              <h1>图片信息查看</h1>
             </div>
           </div>
 

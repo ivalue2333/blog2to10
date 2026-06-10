@@ -219,13 +219,6 @@ export default function JsonImagePage() {
       <SiteHeader currentTool="JSON 图片提取器" />
       <div className={styles.shell}>
         <section className={styles.editorPanel} aria-label="JSON 输入区">
-          <div className={styles.panelHead}>
-            <div>
-              <p className={styles.eyebrow}>JSON Image</p>
-              <h1>图片提取器</h1>
-            </div>
-          </div>
-
           <div className={styles.toolbar}>
             <button className={styles.ghostButton} type="button" onClick={fillExample}>
               填充示例
@@ -235,9 +228,6 @@ export default function JsonImagePage() {
             </button>
           </div>
 
-          <label className={styles.editorLabel} htmlFor="jsonInput">
-            JSON 内容
-          </label>
           <textarea
             id="jsonInput"
             className={styles.jsonInput}
@@ -255,15 +245,8 @@ export default function JsonImagePage() {
 
         <section className={styles.galleryPanel} aria-label="图片预览区">
           <div className={styles.galleryHead}>
-            <div>
-              <p className={styles.eyebrow}>Preview</p>
-              <h2>图片列表</h2>
-            </div>
-            <div className={styles.summary}>
-              <span>共找到</span>
-              <strong>{images.length}</strong>
-              <span>张图片</span>
-            </div>
+            <h2>图片列表</h2>
+            <span className={styles.summary}>共 {images.length} 张</span>
           </div>
 
           <div className={galleryClass}>

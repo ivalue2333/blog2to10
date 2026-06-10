@@ -32,12 +32,30 @@ const tools = [
   },
   {
     href: "/image_meta",
-    title: "图片导入查看台",
+    title: "图片信息查看",
     category: "图像类",
-    desc: "图片元信息预览与查看",
+    desc: "图片信息预览与查看",
     url: "/image_meta",
     cardClass: styles.designCard,
     iconPath: "M12 14h24v20H12V14Zm4 4v12h16V18H16Zm2 9 3.5-4.5 3 3.5 2.5-3 3 4H18Zm-1-7h6v2h-6v-2Z",
+  },
+  {
+    href: "/timestamp",
+    title: "时间戳转换",
+    category: "开发类",
+    desc: "时间戳与日期相互转换",
+    url: "/timestamp",
+    cardClass: styles.designCard,
+    iconPath: "M24 8a16 16 0 1 0 16 16h-4a12 12 0 1 1-12-12V8Zm-2 6h4v10h8v4H22V14Z",
+  },
+  {
+    href: "/whiteboard",
+    title: "白板工具",
+    category: "工具类",
+    desc: "在线白板：思维导图、流程图、自由画",
+    url: "/whiteboard",
+    cardClass: styles.designCard,
+    iconPath: "M10 12h28v18H10V12Zm4 4v10h20V16H14Zm6 18h8v3h-8v-3Z",
   },
 ];
 
