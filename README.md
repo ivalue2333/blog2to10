@@ -1,54 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# blog2to10
 
-## Getting Started
+一个基于 Next.js 16 + React 19 + TypeScript 的在线工具站，集合了一组实用的小工具：视频播放器、JSON 图片提取、图片信息查看、时间戳转换、白板、JSON 查看器等。
 
-npx create-next-app@latest --typescript
+## 在线工具
 
-First, run the development server:
+| 路径 | 名称 | 说明 |
+| --- | --- | --- |
+| `/onlineplayer` | 在线视频播放器 | 本地视频在线播放，支持多种格式 |
+| `/ux_design` | UI 设计原则展示 | 常见 UI 设计原则的可视化 |
+| `/json_image` | JSON 图片提取器 | 从 JSON 中批量提取图片地址 |
+| `/image_meta` | 图片信息查看 | 图片元信息预览 |
+| `/timestamp` | 时间戳转换 | 时间戳与日期相互转换 |
+| `/whiteboard` | 白板 | 基于 [Excalidraw](https://github.com/excalidraw/excalidraw)，IndexedDB 本地持久化 |
+| `/json_view` | JSON 查看器 | 基于 [@uiw/react-json-view](https://github.com/uiwjs/react-json-view)，格式化 / 折叠 / 高亮 |
+
+## 技术栈
+
+- **框架**：Next.js 16（App Router + Turbopack）
+- **UI**：React 19 + CSS Modules
+- **语言**：TypeScript
+- **关键依赖**：
+  - [`@excalidraw/excalidraw`](https://github.com/excalidraw/excalidraw) — 白板
+  - [`@uiw/react-json-view`](https://github.com/uiwjs/react-json-view) — JSON 查看器
+  - [`localforage`](https://github.com/localForage/localForage) — IndexedDB 持久化
+- **部署**：Vercel
+
+## 本地开发
 
 ```bash
+# 安装依赖
+npm install
 
-npm install next@latest react@latest react-dom@latest
-
-npm install -D eslint-config-next@latest
-
+# 启动开发服务器（端口 3000）
 npm run dev
 
-npm run build
-
-# or
-yarn dev
-
-# or
-pnpm dev
-
-# or
-bun dev
-
+# 或者使用提供的脚本（自动清理已占用端口）
+bash scripts/restart.sh
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000) 查看。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 构建与部署
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 本地构建（不部署）
+vercel build
+vercel build --prod
 
-## Learn More
+# 使用本地构建产物部署
+vercel deploy --prebuilt
+vercel deploy --prebuilt --prod
 
-To learn more about Next.js, take a look at the following resources:
+# 一步生产构建 + 部署
+vercel build --prod && vercel deploy --prebuilt --prod
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 配色规范
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 主色（绿）：`#2bb673`
+- 深绿：`#1f9d63`
+- 蓝绿辅助色：`#06b6d4`
+- 文本主色：`#17324d`
+- 页面背景：`linear-gradient(180deg, #f6fbff 0%, #ffffff 100%)`
 
-## Deploy on Vercel
+## 目录结构
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+  _components/SiteHeader.tsx   # 公共顶栏
+  page.tsx                      # 首页（工具入口卡片）
+  onlineplayer/                 # 视频播放器
+  ux_design/                    # UI 设计原则
+  json_image/                   # JSON 图片提取
+  image_meta/                   # 图片信息
+  timestamp/                    # 时间戳转换
+  whiteboard/                   # Excalidraw 白板
+  json_view/                    # JSON 查看器
+scripts/restart.sh              # 重启脚本
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 信息
 
-
-# 信息
-
-白板：https://github.com/excalidraw/excalidraw
+- 白板：基于 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
+- JSON 查看器：基于 [uiwjs/react-json-view](https://github.com/uiwjs/react-json-view)
