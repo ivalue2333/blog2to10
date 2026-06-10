@@ -57,6 +57,15 @@ const tools = [
     cardClass: styles.designCard,
     iconPath: "M10 12h28v18H10V12Zm4 4v10h20V16H14Zm6 18h8v3h-8v-3Z",
   },
+  {
+    href: "/json_view",
+    title: "JSON 查看器",
+    category: "开发类",
+    desc: "格式化 / 折叠 / 高亮查看 JSON",
+    url: "/json_view",
+    cardClass: styles.designCard,
+    iconPath: "M16 10c-3 0-5 2-5 5v5c0 2-1 3-3 3v4c2 0 3 1 3 3v5c0 3 2 5 5 5v-4c-1 0-2-1-2-3v-5c0-2-1-3-2-4 1-1 2-2 2-4v-5c0-2 1-3 2-3v-4Zm16 0v4c1 0 2 1 2 3v5c0 2 1 3 2 4-1 1-2 2-2 4v5c0 2-1 3-2 3v4c3 0 5-2 5-5v-5c0-2 1-3 3-3v-4c-2 0-3-1-3-3v-5c0-3-2-5-5-5Z",
+  },
 ];
 
 export default function Home() {
